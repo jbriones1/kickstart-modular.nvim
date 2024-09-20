@@ -18,6 +18,8 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['<c-v>'] = 'open_vsplit',
+          ['<c-x>'] = 'open_split',
         },
       },
     },
