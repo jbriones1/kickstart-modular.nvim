@@ -35,7 +35,10 @@ require('lazy').setup({
 
   require 'kickstart/plugins/cmp',
 
+  -- Themes
   require 'kickstart/plugins/tokyonight',
+  require 'kickstart/plugins/breezy',
+  require 'kickstart/plugins/everforest',
 
   require 'kickstart/plugins/todo-comments',
 
