@@ -12,6 +12,14 @@ return {
         mode = '',
         desc = '[F]ormat buffer',
       },
+      {
+        '<leader>tf',
+        function()
+          vim.g.disable_autoformat = not vim.g.disable_autoformat
+        end,
+        mode = 'n',
+        desc = '[T]oggle Auto-[F]ormat',
+      },
     },
     opts = {
       notify_on_error = false,

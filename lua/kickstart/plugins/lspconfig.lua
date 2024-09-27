@@ -184,6 +184,7 @@ return {
         ts_ls = {},
         angularls = {},
         emmet_language_server = {},
+        bashls = {},
         --
 
         lua_ls = {
