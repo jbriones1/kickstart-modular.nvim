@@ -13,17 +13,43 @@ return {
         desc = '[F]ormat buffer',
       },
       {
-        '<leader>tf',
+        '<leader>tfb',
         function()
-          vim.g.disable_autoformat = not vim.g.disable_autoformat
+          vim.b.disable_autoformat = not vim.b.disable_autoformat
+          if vim.b.disable_autoformat then
+            print 'Auto-format disabled on buffer.'
+          else
+            print 'Auto-format enabled on buffer.'
+          end
         end,
         mode = 'n',
-        desc = '[T]oggle Auto-[F]ormat',
+        desc = '[T]oggle Auto-[F]ormat on buffer',
+      },
+      {
+        '<leader>tfg',
+        function()
+          vim.g.disable_autoformat = not vim.g.disable_autoformat
+          if vim.g.disable_autoformat then
+            print 'Auto-format disabled globally.'
+          else
+            print 'Auto-format enabled globally.'
+          end
+        end,
+        mode = 'n',
+        desc = '[T]oggle Auto-[F]ormat globally',
       },
     },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
+        if vim.g.disable_autoformat then
+          print 'Auto format disabled globally.'
+          return
+        end
+        if vim.b[bufnr].disable_autoformat then
+          print 'Auto format disabled on buffer.'
+          return
+        end
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
