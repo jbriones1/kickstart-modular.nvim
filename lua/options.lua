@@ -68,4 +68,8 @@ vim.opt.confirm = true
 
 -- Ensures that the colorschemes work okay
 vim.o.termguicolors = true
+
+-- Stops wrapping when line is too long
+vim.o.wrap = false
+
 -- vim: ts=2 sts=2 sw=2 et
