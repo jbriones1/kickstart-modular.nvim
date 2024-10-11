@@ -2,7 +2,7 @@
 --  See `:help vim.keymap.set()`
 
 -- Set semi-colon to act as colon
-vim.keymap.set('n', ';', ':')
+vim.keymap.set({ 'n', 'v' }, ';', ':')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
