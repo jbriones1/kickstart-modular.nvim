@@ -45,8 +45,8 @@ vim.keymap.set({ 'n', 'v' }, '<C-t>w', ':tabclose<CR>', { desc = 'Close current 
 vim.keymap.set({ 'n', 'v' }, '<C-t>t', ':tabnew<CR>', { desc = 'Open a new tab', silent = true })
 vim.keymap.set({ 'n', 'v' }, '<C-t>1', ':tabnew<CR>', { desc = 'Open a new tab with configured split 1', silent = true })
 
-vim.keymap.set({ 'n', 'v' }, '<S-Tab>', 'gT', { desc = 'Go to previous tab' })
-vim.keymap.set({ 'n', 'v' }, '<S-t>', 'gt', { desc = 'Go to next tab' })
+vim.keymap.set({ 'n', 'v' }, '<S-Tab>', ':tabp<CR>', { desc = 'Go to previous tab' })
+vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabN<CR>', { desc = 'Go to next tab' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
