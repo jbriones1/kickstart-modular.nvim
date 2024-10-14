@@ -22,20 +22,6 @@ return {
             return
           end
 
-          --
-          -- local name = node.name
-          -- local path = state.tree:get_node().path
-          -- -- If it's a template, change path to the controller
-          -- if string.find(name, html) then
-          --   state.tree:get_node().path = string.gsub(path, html, '.ts')
-          -- -- If it's a test, open test | controller / template
-          -- elseif string.find(name, test) then
-          --   state.tree:get_node().path = string.gsub(path, test, '.ts')
-          -- -- If it's not a controller, then just return
-          -- elseif string.find(name, ts) == nil then
-          --   return
-          -- end
-
           local file_type = string.match(node.name, 'component(.+)$')
           -- File doesn't match a controller, template or test file
           if file_type == nil then
