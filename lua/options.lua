@@ -63,9 +63,16 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Ensures that the colorschemes work okay
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 -- Stops wrapping when line is too long
-vim.o.wrap = false
+vim.opt.wrap = false
+
+-- Auto-read files so buffers update if they're changed externally
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGained' }, {
+  command = 'if mode() != "c" | checktime | endif',
+  pattern = { '*' },
+})
 
 -- vim: ts=2 sts=2 sw=2 et
