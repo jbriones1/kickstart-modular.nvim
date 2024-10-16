@@ -1,15 +1,18 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Set semi-colon to act as colon
-vim.keymap.set({ 'n', 'v' }, ';', ':')
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Set semi-colon to act as colon
+vim.keymap.set({ 'n', 'v' }, ';', ':')
+
+-- Delete text with CTRL+BS
+vim.keymap.set('i', '<C-BS>', '<C-w>')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -41,12 +44,18 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- Keybinds for tab control
-vim.keymap.set({ 'n', 'v' }, '<C-t>w', ':tabclose<CR>', { desc = 'Close current tab' })
+vim.keymap.set({ 'n', 'v' }, '<S-Tab>', ':tabp<CR>', { desc = 'Go to previous tab', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabN<CR>', { desc = 'Go to next tab', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<C-t>w', ':tabclose<CR>', { desc = 'Close current tab', silent = true })
 vim.keymap.set({ 'n', 'v' }, '<C-t>t', ':tabnew<CR>', { desc = 'Open a new tab', silent = true })
-vim.keymap.set({ 'n', 'v' }, '<C-t>1', ':tabnew<CR>', { desc = 'Open a new tab with configured split 1', silent = true })
 
-vim.keymap.set({ 'n', 'v' }, '<S-Tab>', ':tabp<CR>', { desc = 'Go to previous tab' })
-vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabN<CR>', { desc = 'Go to next tab' })
+-- Custom tab configurations
+local tab_split1 = function()
+  vim.cmd [[ tabnew ]]
+  vim.cmd [[ vsplit ]]
+  vim.cmd [[ split ]]
+end
+vim.keymap.set({ 'n', 'v' }, '<C-t>1', tab_split1, { desc = 'Open a new tab with configured split 1', silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
