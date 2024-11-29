@@ -43,6 +43,9 @@ vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabN<CR>', { desc = 'Go to next tab', si
 vim.keymap.set({ 'n', 'v' }, '<C-t>w', ':tabclose<CR>', { desc = 'Close current tab', silent = true })
 vim.keymap.set({ 'n', 'v' }, '<C-t>t', ':tabnew<CR>', { desc = 'Open a new tab', silent = true })
 
+-- Press enter to make a new line in normal mode
+vim.keymap.set('n', '<Enter>', 'o<Esc>', { desc = 'Make a new empty line', silent = true })
+
 -- Custom tab configurations
 local tab_split1 = function()
   vim.cmd [[ tabnew ]]
