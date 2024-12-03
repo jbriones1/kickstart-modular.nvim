@@ -45,7 +45,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Keybinds for tab control
 vim.keymap.set({ 'n', 'v' }, '<S-Tab>', ':tabp<CR>', { desc = 'Go to previous tab', silent = true })
-vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabN<CR>', { desc = 'Go to next tab', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabn<CR>', { desc = 'Go to next tab', silent = true })
 vim.keymap.set({ 'n', 'v' }, '<C-t>w', ':tabclose<CR>', { desc = 'Close current tab', silent = true })
 vim.keymap.set({ 'n', 'v' }, '<C-t>t', ':tabnew<CR>', { desc = 'Open a new tab', silent = true })
 
