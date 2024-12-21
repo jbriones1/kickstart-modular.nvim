@@ -104,6 +104,7 @@ return {
           -- map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           -- map('<F2>', vim.lsp.buf.rename, 'Rename')
           map('<F2>', require('kickstart.plugins.rename').rename, 'Rename')
+          map('<leader>rn', require('kickstart.plugins.rename').rename_select, 'Select client [r]e[n]ame')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.

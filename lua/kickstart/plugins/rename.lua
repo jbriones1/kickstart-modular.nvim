@@ -78,4 +78,5 @@ end
 
 return {
   rename = lsp_rename_use_priority_or_select,
+  rename_select = lsp_rename_use_select,
 }
