@@ -65,6 +65,9 @@ vim.keymap.set('v', '<A-k>', ':m <-2<CR>gv=gv', { desc = 'Move current visual bl
 -- Comment lines
 vim.keymap.set('n', '<C-/>', 'gcc', { desc = 'Toggle line comment', remap = true, silent = true })
 vim.keymap.set('v', '<C-/>', 'gc', { desc = 'Toggle visual block comment', remap = true, silent = true })
+-- This is for Windows, as WezTerm consumes <C-/> as <C-_> there
+vim.keymap.set('n', '<C-_>', 'gcc', { desc = 'Toggle line comment', remap = true, silent = true })
+vim.keymap.set('v', '<C-_>', 'gc', { desc = 'Toggle visual block comment', remap = true, silent = true })
 
 -- Custom tab configurations
 local tab_split1 = function()
