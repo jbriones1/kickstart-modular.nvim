@@ -38,13 +38,27 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Keybinds for tab control
-vim.keymap.set({ 'n', 'v' }, '<S-Tab>', ':tabp<CR>', { desc = 'Go to previous tab', silent = true })
-vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabN<CR>', { desc = 'Go to next tab', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-t>', ':tabp<CR>', { desc = 'Go to previous tab', silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-Tab>', ':tabn<CR>', { desc = 'Go to next tab', silent = true })
 vim.keymap.set({ 'n', 'v' }, '<C-t>w', ':tabclose<CR>', { desc = 'Close current tab', silent = true })
 vim.keymap.set({ 'n', 'v' }, '<C-t>t', ':tabnew<CR>', { desc = 'Open a new tab', silent = true })
 
 -- Press enter to make a new line in normal mode
 vim.keymap.set('n', '<Enter>', 'o<Esc>', { desc = 'Make a new empty line', silent = true })
+
+-- Move the current line down/up
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move current line down', silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move current line up', silent = true })
+vim.keymap.set('i', '<A-j>', ' <Esc>:m .+1<CR>==gi', { desc = 'Move current line down', silent = true })
+vim.keymap.set('i', '<A-k>', ' <Esc>:m .-2<CR>==gi', { desc = 'Move current line up', silent = true })
+
+-- Move the current visual block down/up
+vim.keymap.set('v', '<A-j>', ':m >+1<CR>gv=gv', { desc = 'Move current visual block down', silent = true })
+vim.keymap.set('v', '<A-k>', ':m <-2<CR>gv=gv', { desc = 'Move current visual block up', silent = true })
+
+-- Comment lines
+vim.keymap.set('n', '<C-/>', 'gcc', { desc = 'Toggle line comment', remap = true, silent = true })
+vim.keymap.set('v', '<C-/>', 'gc', { desc = 'Toggle visual block comment', remap = true, silent = true })
 
 -- Custom tab configurations
 local tab_split1 = function()
