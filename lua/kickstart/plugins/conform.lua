@@ -64,6 +64,7 @@ return {
         end
       end,
       formatters_by_ft = {
+        latex = { 'latexindent ' },
         lua = { 'stylua' },
         javascript = { 'prettierd' },
         typescript = { 'prettierd' },
