@@ -50,7 +50,7 @@ vim.keymap.set({ 'n', 'v' }, '<C-t>w', ':tabclose<CR>', { desc = 'Close current 
 vim.keymap.set({ 'n', 'v' }, '<C-t>t', ':tabnew<CR>', { desc = 'Open a new tab', silent = true })
 
 -- Press enter to make a new line in normal mode
-vim.keymap.set('n', '<Enter>', 'o<Esc>', { desc = 'Make a new empty line', silent = true })
+-- vim.keymap.set('n', '<Enter>', 'o<Esc>', { desc = 'Make a new empty line', silent = true })
 
 -- Move the current line down/up
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move current line down', silent = true })
