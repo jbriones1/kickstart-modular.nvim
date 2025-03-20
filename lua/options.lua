@@ -82,4 +82,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGai
 -- Only show 1 status line with the information from the currently selected buffer
 vim.o.laststatus = 3
 
+-- Use the virtual environment for Python3
+vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/neovim/bin/python3'
+
 -- vim: ts=2 sts=2 sw=2 et
