@@ -79,4 +79,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGai
   pattern = { '*' },
 })
 
+-- Only show 1 status line with the information from the currently selected buffer
+vim.o.laststatus = 3
+
 -- vim: ts=2 sts=2 sw=2 et
