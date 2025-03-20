@@ -10,7 +10,7 @@ return {
     },
     config = true,
     keys = {
-      { '<leader>gs', ':Neogit kind=split_below_all<CR>', desc = 'Open NeoGit' },
+      { '<leader>gs', ':Neogit kind=split_below_all<CR>', desc = 'Open NeoGit', silent = true },
     },
   },
 }

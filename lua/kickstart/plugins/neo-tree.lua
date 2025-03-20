@@ -62,6 +62,8 @@ return {
       },
       window = {
         mappings = {
+          ['s'] = 'open_split',
+          ['v'] = 'open_vsplit',
           -- Angular mappings
           -- Open the controller and template in a vertical split (controller | template)
           ['<C-1>'] = 'ng_open',
