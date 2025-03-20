@@ -66,6 +66,8 @@ return {
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>g', group = 'Neo[G]it', mode = { 'n', 'v' } },
         { '<C-t>', group = '[T]ab', mode = { 'n', 'v' } },
+        { '<localleader>m', group = '[M]olten', mode = { 'n' } },
+        { '<localleader>l', group = '[L]aTeX', mode = { 'n' } },
       },
     },
   },

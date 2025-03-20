@@ -14,7 +14,6 @@ return {
         path = 1,
       }
 
-      local molten = require('molten.status').initialized()
       return {
         options = {
           icons_enabled = vim.g.have_nerd_font,
@@ -26,7 +25,7 @@ return {
         sections = {
           lualine_b = { 'branch' },
           lualine_c = { filename },
-          lualine_x = { molten, 'searchcount', 'encoding', 'fileformat' },
+          lualine_x = { 'searchcount', 'encoding', 'fileformat' },
           lualine_y = { 'diff', 'diagnostics', 'lsp_status', filetype },
         },
       }
