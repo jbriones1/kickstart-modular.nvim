@@ -69,6 +69,9 @@ vim.keymap.set('v', '<C-/>', 'gc', { desc = 'Toggle visual block comment', remap
 vim.keymap.set('n', '<C-_>', 'gcc', { desc = 'Toggle line comment', remap = true, silent = true })
 vim.keymap.set('v', '<C-_>', 'gc', { desc = 'Toggle visual block comment', remap = true, silent = true })
 
+-- Indent and keep visual selection
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent and keep visual block.', remap = true, silent = true })
+
 -- Custom tab configurations
 local tab_split1 = function()
   vim.cmd [[ tabnew ]]
