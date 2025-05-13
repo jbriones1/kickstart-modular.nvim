@@ -78,10 +78,6 @@ return {
           --  Most Language Servers support renaming across files, etc.
           map('<F2>', vim.lsp.buf.rename, '[R]e[n]ame')
 
-          -- Execute a code action, usually your cursor needs to be on top of an error
-          -- or a suggestion from your LSP for this to activate.
-          map('ca', vim.lsp.buf.code_action, 'Goto [C]ode [A]ction', { 'n', 'x' })
-
           -- Find references for the word under your cursor.
           map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
@@ -97,14 +93,6 @@ return {
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
-          -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
-          map('ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
-          -- Fuzzy find all the symbols in your current workspace.
-          --  Similar to document symbols, except searches over your entire project.
-          map('ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
@@ -123,6 +111,7 @@ return {
               return client.supports_method(method, { bufnr = bufnr })
             end
           end
+
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
           map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
@@ -147,7 +136,10 @@ return {
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- Hover to display a definition
-          map('K', vim.lsp.buf.hover, 'Hover')
+          map('<S-k>', vim.lsp.buf.hover, 'Hover')
+
+          -- Hover to display a definition
+          map('<S-e>', vim.diagnostic.open_float(), 'Open diagnostic message')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -227,7 +219,6 @@ return {
       --end
       --vim.diagnostic.config { signs = { text = diagnostic_signs } }
       --end
-
 
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
