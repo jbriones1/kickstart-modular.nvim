@@ -13,7 +13,6 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -80,7 +79,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGai
 })
 
 -- Only show 1 status line with the information from the currently selected buffer
-vim.o.laststatus = 3
+vim.o.laststatus = 2
 
 -- Use the virtual environment for Python3
 vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/neovim/bin/python3'
