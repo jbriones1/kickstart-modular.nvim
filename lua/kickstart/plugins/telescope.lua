@@ -55,11 +55,15 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          mappings = {
+            i = {
+              ['<C-enter>'] = 'to_fuzzy_refine',
+              ['<C-s>'] = 'select_horizontal',
+            },
+            n = { ['<C-s>'] = 'select_horizontal' },
+          },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
@@ -85,7 +89,6 @@ return {
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("" for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set('n', '<C-x>', builtin.select_horizontal, { desc = 'Open in horizontal split' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
