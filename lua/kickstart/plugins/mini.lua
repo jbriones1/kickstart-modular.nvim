@@ -16,18 +16,16 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup {
-        opts = {
-          custom_surroundings = {
-            t = {
-              input = { '<([%p%w-]-)%f[^<%p%w-][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
-              output = function()
-                local tag_name = MiniSurround.user_input 'Tag name'
-                if tag_name == nil then
-                  return nil
-                end
-                return { left = tag_name, right = tag_name }
-              end,
-            },
+        custom_surroundings = {
+          t = {
+            input = { '<([%p%w-]-)%f[^<%w-][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
+            output = function()
+              local tag_name = MiniSurround.user_input 'Tag name'
+              if tag_name == nil then
+                return nil
+              end
+              return { left = tag_name, right = tag_name }
+            end,
           },
         },
       }
