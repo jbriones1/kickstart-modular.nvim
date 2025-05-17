@@ -17,14 +17,19 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup {
         custom_surroundings = {
+          -- Select tags that contain hyphens in their name (like Angular components)
           t = {
-            input = { '<([%p%w-]-)%f[^<%w-][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
+            input = { '<([%w-]-)%f[^<%w-][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
+          },
+          -- Select the inside of an HTML tag, preserving the other attributes.
+          T = {
+            input = { '<(%w+)[^<>]->.-</%1>', '^<()%w+().*</()%w+()>$' },
             output = function()
               local tag_name = MiniSurround.user_input 'Tag name'
               if tag_name == nil then
                 return nil
               end
-              return { left = tag_name, right = tag_name }
+              return { left = '<' .. tag_name .. '>', right = '<' .. tag_name .. '>' }
             end,
           },
         },
