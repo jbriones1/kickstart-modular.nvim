@@ -250,6 +250,8 @@ return {
         angularls = {},
         emmet_language_server = {},
         bashls = {},
+        cssls = {},
+
         --
 
         lua_ls = {
