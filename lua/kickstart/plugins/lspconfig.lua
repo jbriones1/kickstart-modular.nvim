@@ -251,6 +251,7 @@ return {
         emmet_language_server = {},
         bashls = {},
         cssls = {},
+        clangd = {},
 
         --
 

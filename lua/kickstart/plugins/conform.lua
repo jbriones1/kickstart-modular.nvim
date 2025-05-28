@@ -72,6 +72,7 @@ return {
         htmlangular = { 'prettierd' },
         json = { 'prettierd' },
         python = { 'isort', 'black' },
+        cpp = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
