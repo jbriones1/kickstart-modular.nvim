@@ -61,6 +61,7 @@ return {
         end,
       },
       window = {
+        position = 'right',
         mappings = {
           ['s'] = 'open_split',
           ['v'] = 'open_vsplit',
