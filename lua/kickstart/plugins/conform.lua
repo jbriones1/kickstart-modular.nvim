@@ -1,3 +1,16 @@
+local function organize_imports(bufnr)
+  bufnr = bufnr or vim.api.nvim_get_current_buf()
+  for _, client in pairs(vim.lsp.get_clients { bufnr = bufnr }) do
+    if client.name == 'ts_ls' then
+      local params = {
+        command = '_typescript.organizeImports',
+        arguments = { vim.api.nvim_buf_get_name(bufnr) },
+      }
+      client:request('workspace/executeCommand', params, nil, 0)
+    end
+  end
+end
+
 return {
   { -- Autoformat
     'stevearc/conform.nvim',
@@ -7,6 +20,7 @@ return {
       {
         '<leader>f',
         function()
+          organize_imports()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
@@ -57,6 +71,7 @@ return {
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
+          organize_imports(bufnr)
           return {
             timeout_ms = 500,
             lsp_format = 'fallback',
@@ -64,7 +79,7 @@ return {
         end
       end,
       formatters_by_ft = {
-        latex = { 'latexindent ' },
+        latex = { 'latexindent' },
         lua = { 'stylua' },
         javascript = { 'prettierd' },
         typescript = { 'prettierd' },
