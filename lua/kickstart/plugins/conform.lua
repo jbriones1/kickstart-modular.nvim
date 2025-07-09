@@ -53,6 +53,9 @@ return {
         desc = '[T]oggle Auto-[F]ormat globally',
       },
     },
+    -- This will provide type hinting with LuaLS
+    ---@module "conform"
+    ---@type conform.setupOpts
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -73,7 +76,6 @@ return {
         else
           organize_imports(bufnr)
           return {
-            timeout_ms = 500,
             lsp_format = 'fallback',
           }
         end
