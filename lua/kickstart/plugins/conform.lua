@@ -73,6 +73,8 @@ return {
         typescript = { 'prettierd' },
         html = { 'prettierd' },
         htmlangular = { 'prettierd' },
+        css = { 'prettierd' },
+        scss = { 'prettierd' },
         json = { 'prettierd' },
         python = { 'isort', 'black' },
         -- cpp = { 'clang-format' },

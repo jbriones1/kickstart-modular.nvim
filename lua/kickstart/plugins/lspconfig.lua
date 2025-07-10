@@ -251,6 +251,7 @@ return {
         bashls = {},
         cssls = {},
         clangd = {},
+        eslint = {},
 
         --
 
