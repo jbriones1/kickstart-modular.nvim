@@ -94,5 +94,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Yank the entire buffer
+vim.keymap.set('n', '<leader>ya', function()
+  vim.cmd 'normal! mz'
+  vim.cmd '%y'
+  vim.cmd 'normal! `z'
+end, { desc = 'Yank entire buffer', silent = true })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
