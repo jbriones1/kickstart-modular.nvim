@@ -101,5 +101,8 @@ vim.keymap.set('n', '<leader>ya', function()
   vim.cmd 'normal! `z'
 end, { desc = 'Yank entire buffer', silent = true })
 
+-- Close buffer and move to previous one
+vim.keymap.set('n', '<leader>bd', ':bd<bar>b#<CR>', { desc = 'Delete the buffer and move to the previous one', silent = true })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
