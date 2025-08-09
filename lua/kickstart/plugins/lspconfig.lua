@@ -244,6 +244,7 @@ return {
         cssls = {},
         clangd = {},
         eslint = {},
+        stylelint = {},
 
         --
 
