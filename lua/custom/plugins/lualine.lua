@@ -26,7 +26,7 @@ return {
           lualine_b = { 'branch' },
           lualine_c = { filename },
           lualine_x = { 'searchcount', 'fileformat' },
-          lualine_y = { 'diff', 'diagnostics', 'lsp_status', filetype },
+          lualine_y = { 'diff', 'diagnostics', filetype },
         },
       }
     end,
