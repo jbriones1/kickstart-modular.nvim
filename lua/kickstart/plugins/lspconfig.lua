@@ -238,7 +238,13 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        angularls = {},
+        angularls = {
+          filetypes = {
+            'typescript',
+            'html',
+            'htmlangular',
+          },
+        },
         emmet_language_server = {},
         bashls = {},
         cssls = {},
