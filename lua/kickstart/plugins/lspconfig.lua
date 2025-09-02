@@ -241,16 +241,16 @@ return {
         angularls = {
           filetypes = {
             'typescript',
-            'html',
             'htmlangular',
           },
         },
-        emmet_language_server = {},
         bashls = {},
-        cssls = {},
         clangd = {},
+        cssls = {},
+        emmet_language_server = {},
         eslint = {},
         stylelint = {},
+        vtsls = {},
 
         --
 
