@@ -76,7 +76,7 @@ return {
         css = { 'prettierd' },
         scss = { 'prettierd' },
         json = { 'prettierd' },
-        python = { 'isort', 'black' },
+        python = { 'ruff', 'isort', 'black', stop_after_first = true },
         -- cpp = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
