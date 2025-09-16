@@ -247,6 +247,7 @@ return {
         cssls = {},
         emmet_language_server = {},
         eslint = {},
+        html = {},
         stylelint = {},
         vtsls = {},
 
