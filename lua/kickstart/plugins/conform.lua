@@ -67,7 +67,7 @@ return {
         end
       end,
       formatters_by_ft = {
-        latex = { 'latexindent' },
+        latex = { 'latexindent', stop_after_first = true },
         lua = { 'stylua' },
         javascript = { 'prettierd' },
         typescript = { 'prettierd' },
@@ -76,7 +76,7 @@ return {
         css = { 'prettierd' },
         scss = { 'prettierd' },
         json = { 'prettierd' },
-        python = { 'ruff', 'isort', 'black', stop_after_first = true },
+        python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         -- cpp = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
