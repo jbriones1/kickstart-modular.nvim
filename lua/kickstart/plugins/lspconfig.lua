@@ -236,21 +236,39 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
+        -- Web dev
         angularls = {
           filetypes = {
             'typescript',
             'htmlangular',
           },
         },
-        bashls = {},
-        clangd = {},
         cssls = {},
         emmet_language_server = {},
         eslint = {},
         html = {},
-        stylelint = {},
-        vtsls = {},
-
+        stylelint_lsp = {},
+        vtsls = {}, -- TypeScript
+        -- Python
+        basedpyright = {
+          settings = {
+            disableOrganizeImports = true,
+            disableTaggedHints = true,
+            basedpyright = {
+              analysis = {
+                inlayHints = {
+                  variableTypes = false,
+                  callArgumentNames = false,
+                },
+              },
+            },
+          },
+        },
+        -- C
+        clangd = {},
+        -- System
+        bashls = {},
+        jsonls = {},
         --
 
         lua_ls = {
