@@ -8,23 +8,24 @@ return {
   },
   cmd = 'Copilot',
   event = 'InsertEnter',
-  config = function()
-    require('copilot').setup {
-      panel = {
-        layout = {
-          position = 'right',
-        },
+  opts = {
+    panel = {
+      layout = {
+        position = 'right',
       },
-      suggestion = {
-        auto_trigger = true,
-        keymap = {
-          accept = '<A-a>',
-        },
+    },
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = '<C-CR>',
       },
-      -- nes = {
-      --   enabled = true,
-      -- },
-    }
+    },
+    -- nes = {
+    --   enabled = true,
+    -- },
+  },
+  config = function(_, opts)
+    require('copilot').setup(opts)
 
     -- Get copilot suggestions
     vim.api.nvim_create_autocmd('User', {
