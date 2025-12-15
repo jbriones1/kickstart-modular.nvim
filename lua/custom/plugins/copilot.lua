@@ -3,23 +3,14 @@
 
 return {
   'zbirenbaum/copilot.lua',
-  dependencies = {
-    'copilotlsp-nvim/copilot-lsp', -- for next editor suggestion functionality
-  },
+  -- dependencies = {
+  --   'copilotlsp-nvim/copilot-lsp', -- for next editor suggestion functionality
+  -- },
   cmd = 'Copilot',
   event = 'InsertEnter',
   opts = {
-    panel = {
-      layout = {
-        position = 'right',
-      },
-    },
-    suggestion = {
-      auto_trigger = true,
-      keymap = {
-        accept = '<C-CR>',
-      },
-    },
+    panel = { enabled = false },
+    suggestion = { enabled = false },
     -- nes = {
     --   enabled = true,
     -- },
