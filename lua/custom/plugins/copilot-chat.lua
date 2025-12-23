@@ -7,6 +7,9 @@ return {
     dependencies = {
       { 'nvim-lua/plenary.nvim', branch = 'master' },
     },
+    keys = {
+      { '<leader>cc', '<cmd>CopilotChatToggle<cr>', desc = 'Open Copilot Chat' },
+    },
     -- build = 'make tiktoken',
     opts = {
       model = 'claude-opus-4.5',
