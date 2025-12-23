@@ -210,12 +210,6 @@ return {
       --vim.diagnostic.config { signs = { text = diagnostic_signs } }
       --end
 
-      -- LSP servers and clients are able to communicate to each other what features they support.
-      --  By default, Neovim doesn't support everything that is in the LSP specification.
-      --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-      --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -245,7 +239,25 @@ return {
               'htmlangular',
             },
           },
-          -- Python
+          eslint = {
+            root_dir = function(filename)
+              local util = require 'lspconfig.util'
+              return util.root_pattern(
+                '.eslintrc',
+                '.eslintrc.js',
+                '.eslintrc.cjs',
+                '.eslintrc.yaml',
+                '.eslintrc.yml',
+                '.eslintrc.json',
+                'eslint.config.js',
+                'eslint.config.mjs',
+                'eslint.config.cjs',
+                'eslint.config.ts',
+                'eslint.config.mts',
+                'eslint.config.cts'
+              )(filename)
+            end,
+          },
           basedpyright = {
             settings = {
               python = {
