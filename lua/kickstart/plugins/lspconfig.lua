@@ -239,25 +239,6 @@ return {
               'htmlangular',
             },
           },
-          eslint = {
-            root_dir = function(filename)
-              local util = require 'lspconfig.util'
-              return util.root_pattern(
-                '.eslintrc',
-                '.eslintrc.js',
-                '.eslintrc.cjs',
-                '.eslintrc.yaml',
-                '.eslintrc.yml',
-                '.eslintrc.json',
-                'eslint.config.js',
-                'eslint.config.mjs',
-                'eslint.config.cjs',
-                'eslint.config.ts',
-                'eslint.config.mts',
-                'eslint.config.cts'
-              )(filename)
-            end,
-          },
           basedpyright = {
             settings = {
               python = {

@@ -42,7 +42,7 @@ return {
       require('CopilotChat').setup(opts)
       -- Auto-command to customize chat buffer behavior
       vim.api.nvim_create_autocmd('BufEnter', {
-        pattern = 'copilot-*',
+        pattern = 'copilot-chat',
         callback = function()
           vim.opt_local.relativenumber = false
           vim.opt_local.number = false
