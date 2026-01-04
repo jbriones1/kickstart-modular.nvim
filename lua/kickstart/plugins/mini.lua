@@ -1,6 +1,6 @@
 return {
   { -- Collection of various small independent plugins/modules
-    'echasnovski/mini.nvim',
+    'nvim-mini/mini.nvim',
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -18,11 +18,11 @@ return {
       require('mini.surround').setup {
         custom_surroundings = {
           -- Select tags that contain hyphens in their name (like Angular components)
-          t = {
-            input = { '<([%w-]-)%f[^<%w-][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
-          },
+          -- t = {
+          --   input = { '<([%p%w]-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
+          -- },
           -- Select the inside of an HTML tag, preserving the other attributes.
-          T = {
+          t = {
             input = { '<(%w+)[^<>]->.-</%1>', '^<()%w+().*</()%w+()>$' },
             output = function()
               local tag_name = MiniSurround.user_input 'Tag name'
@@ -35,7 +35,14 @@ return {
         },
       }
 
+      -- Shows trailing whitespace
       require('mini.trailspace').setup()
+
+      -- Allows window setup to be preserved while closing buffers
+      require('mini.bufremove').setup()
+      vim.keymap.set('n', '<leader>bd', function()
+        require('mini.bufremove').delete(0, false)
+      end, { desc = '(mini) Delete current buffer', silent = true })
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
