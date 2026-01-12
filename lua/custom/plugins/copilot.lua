@@ -14,6 +14,22 @@ return {
     -- nes = {
     --   enabled = true,
     -- },
+    server_opts_overrides = {
+      settings = {
+        telemetry = {
+          telemetryLevel = 'off',
+        },
+      },
+    },
+    should_attach = function(_, bufname)
+      local dirs = { '/cmpt431/', '/cmpt450/' }
+      for _, dir in ipairs(dirs) do
+        if string.find(bufname, dir) then
+          return false
+        end
+      end
+      return true
+    end,
   },
   config = function(_, opts)
     require('copilot').setup(opts)

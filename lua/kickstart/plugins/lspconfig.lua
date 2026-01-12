@@ -253,14 +253,6 @@ return {
               },
             },
           },
-          copilot = {
-            settings = {
-              telemetry = {
-                telemetryLevel = 'off',
-              },
-            },
-          },
-          --
 
           lua_ls = {
             -- cmd = { ... },
