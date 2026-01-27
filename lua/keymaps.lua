@@ -101,6 +101,10 @@ vim.keymap.set('n', '<leader>ya', function()
   vim.cmd 'normal! `z'
 end, { desc = 'Yank entire buffer', silent = true })
 
+if vim.g.vscode then
+  require 'vscode-keymaps'
+end
+
 -- Close buffer and move to previous one
 -- vim.keymap.set('n', '<leader>bd', ':b#<bar>bd#<CR>', { desc = 'Delete the buffer and move to the previous one', silent = true })
 
