@@ -29,6 +29,17 @@ return {
           -- },
         },
         opts = {},
+        config = function(_, opts)
+          require('luasnip').setup(opts)
+          -- Fixes https://github.com/L3MON4D3/LuaSnip/issues/258
+          vim.api.nvim_create_autocmd('InsertLeave', {
+            callback = function()
+              if require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()] and not require('luasnip').session.jump_active then
+                require('luasnip').unlink_current()
+              end
+            end,
+          })
+        end,
       },
       'folke/lazydev.nvim',
       'fang2hou/blink-copilot',
