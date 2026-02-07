@@ -61,7 +61,7 @@ return {
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 2500,
             lsp_format = 'fallback',
           }
         end
@@ -70,9 +70,9 @@ return {
         latex = { 'latexindent', stop_after_first = true },
         lua = { 'stylua' },
         javascript = { 'prettierd' },
-        javascriptreact = { 'prettier' },
+        javascriptreact = { 'prettierd' },
         typescript = { 'prettierd' },
-        typescriptreact = { 'prettier' },
+        typescriptreact = { 'prettierd' },
         html = { 'prettierd' },
         htmlangular = { 'prettierd' },
         css = { 'prettierd' },
