@@ -239,6 +239,25 @@ return {
               'htmlangular',
             },
           },
+          astro = {
+            capabilities = {
+              workspace = {
+                didChangeWatchedFiles = {
+                  dynamicRegistration = true,
+                },
+              },
+            },
+          },
+          eslint = {
+            capabilities = {
+              workspace = {
+                didChangeWatchedFiles = {
+                  dynamicRegistration = true,
+                },
+              },
+            },
+          },
+          -- Python
           basedpyright = {
             settings = {
               python = {
