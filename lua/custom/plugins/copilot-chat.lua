@@ -12,7 +12,7 @@ return {
     },
     -- build = 'make tiktoken',
     opts = {
-      model = 'claude-opus-4.5',
+      model = 'auto',
       temperature = 0.1,
       window = {
         layout = 'vertical',
