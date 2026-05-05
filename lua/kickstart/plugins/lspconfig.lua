@@ -185,6 +185,7 @@ return {
         angularls = {
           filetypes = {
             'typescript',
+            'html',
             'htmlangular',
           },
         },
@@ -224,7 +225,6 @@ return {
 
         -- ts_ls = {},
 
-        vtsls = {},
         stylua = {}, -- Used to format Lua code
 
         -- Special Lua Config, as recommended by neovim help docs
@@ -272,6 +272,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'angular-language-server',
+        'css-lsp',
         -- You can add other tools here that you want Mason to install
       })
 
@@ -281,6 +282,10 @@ return {
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
+
+      require('mason-lspconfig').setup {
+        automatic_enable = true,
+      }
     end,
   },
 }
