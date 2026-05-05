@@ -97,28 +97,21 @@ return {
               -- customize the drawing of kind icons
               kind_icon = {
                 text = function(ctx)
-                  -- default kind icon
-                  local icon = ctx.kind_icon
-                  -- if LSP source, check for color derived from documentation
-                  -- if ctx.item.source_name == 'LSP' then
-                  --   local color_item = require('nvim-highlight-colors').format(ctx.item.documentation, { kind = ctx.kind })
-                  --   if color_item and color_item.abbr ~= '' then
-                  --     icon = color_item.abbr
-                  --   end
-                  -- end
-                  return icon .. ctx.icon_gap
+                  if ctx.kind == 'Color' then return '■ ' end
+                  return ctx.kind_icon .. ctx.icon_gap
                 end,
                 highlight = function(ctx)
-                  -- default highlight group
-                  local highlight = 'BlinkCmpKind' .. ctx.kind
-                  -- if LSP source, check for color derived from documentation
-                  -- if ctx.item.source_name == 'LSP' then
-                  --   local color_item = require('nvim-highlight-colors').format(ctx.item.documentation, { kind = ctx.kind })
-                  --   if color_item and color_item.abbr_hl_group then
-                  --     highlight = color_item.abbr_hl_group
-                  --   end
-                  -- end
-                  return highlight
+                  if ctx.kind == 'Color' and ctx.item.source_name == 'LSP' then
+                    local doc = ctx.item.documentation
+                    if type(doc) == 'table' then doc = doc.value end
+                    local hex = doc and doc:match '#(%x%x%x%x%x%x)'
+                    if hex then
+                      local hl = 'BlinkColor_' .. hex
+                      if vim.fn.hlID(hl) == 0 then vim.api.nvim_set_hl(0, hl, { fg = tonumber(hex, 16) }) end
+                      return hl
+                    end
+                  end
+                  return 'BlinkCmpKind' .. ctx.kind
                 end,
               },
             },
