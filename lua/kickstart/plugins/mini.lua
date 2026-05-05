@@ -1,3 +1,5 @@
+---@module 'lazy'
+---@type LazySpec
 return {
   { -- Collection of various small independent plugins/modules
     'nvim-mini/mini.nvim',
@@ -6,9 +8,16 @@ return {
       --
       -- Examples:
       --  - va)  - [V]isually select [A]round [)]paren
-      --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+      --  - yinq - [Y]ank [I]nside [I]next [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup { n_lines = 500 }
+      require('mini.ai').setup {
+        -- NOTE: Avoid conflicts with the built-in incremental selection mappings on Neovim>=0.12 (see `:help treesitter-incremental-selection`)
+        mappings = {
+          around_next = 'aa',
+          inside_next = 'ii',
+        },
+        n_lines = 500,
+      }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
@@ -40,9 +49,7 @@ return {
 
       -- Allows window setup to be preserved while closing buffers
       require('mini.bufremove').setup()
-      vim.keymap.set('n', '<leader>bd', function()
-        require('mini.bufremove').delete(0, false)
-      end, { desc = '(mini) Delete current buffer', silent = true })
+      vim.keymap.set('n', '<leader>bd', function() require('mini.bufremove').delete(0, false) end, { desc = '(mini) Delete current buffer', silent = true })
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -60,7 +67,7 @@ return {
       -- end
 
       -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      --  Check out: https://github.com/nvim-mini/mini.nvim
     end,
   },
 }

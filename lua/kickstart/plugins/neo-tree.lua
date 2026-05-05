@@ -1,6 +1,8 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
+---@module 'lazy'
+---@type LazySpec
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
@@ -13,20 +15,18 @@ return {
   keys = {
     { '\\', ':Neotree action=focus source=filesystem position=right toggle=true reveal=true<CR>', desc = 'NeoTree reveal', silent = true },
   },
+  ---@module 'neo-tree'
+  ---@type neotree.Config
   opts = {
     filesystem = {
       commands = {
         ng_open = function(state)
           local node = state.tree:get_node()
-          if node == nil or node.type ~= 'file' then
-            return
-          end
+          if node == nil or node.type ~= 'file' then return end
 
           local file_type = string.match(node.name, 'component(.+)$')
           -- File doesn't match a controller, template or test file
-          if file_type == nil then
-            return
-          end
+          if file_type == nil then return end
 
           local orig_path = node.path
           local cmds = require 'neo-tree.sources.filesystem.commands'

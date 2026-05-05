@@ -1,3 +1,5 @@
+---@module 'lazy'
+---@type LazySpec
 return {
   { -- Autoformat
     'stevearc/conform.nvim',
@@ -6,9 +8,7 @@ return {
     keys = {
       {
         '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
+        function() require('conform').format { async = true } end,
         mode = '',
         desc = '[F]ormat buffer',
       },
@@ -39,8 +39,7 @@ return {
         desc = '[T]oggle Auto-[F]ormat globally',
       },
     },
-    -- This will provide type hinting with LuaLS
-    ---@module "conform"
+    ---@module 'conform'
     ---@type conform.setupOpts
     opts = {
       notify_on_error = false,
@@ -66,6 +65,10 @@ return {
           }
         end
       end,
+      default_format_opts = {
+        lsp_format = 'fallback', -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
+      },
+      -- You can also specify external formatters in here.
       formatters_by_ft = {
         latex = { 'latexindent', stop_after_first = true },
         lua = { 'stylua' },
@@ -80,6 +83,7 @@ return {
         json = { 'prettierd' },
         python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         -- cpp = { 'clang-format' },
+        -- rust = { 'rustfmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
