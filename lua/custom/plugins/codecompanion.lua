@@ -17,12 +17,12 @@ return {
           model = 'gpt-5-codex',
         },
         cli = {
-          agent = 'copilot',
+          agent = 'codex',
           agents = {
-            copilot = {
-              cmd = 'copilot',
+            codex = {
+              cmd = 'codex',
               args = {},
-              description = 'Copilot CLI',
+              description = 'Codex CLI',
               provider = 'terminal',
             },
           },
@@ -39,11 +39,10 @@ return {
     },
     keys = {
       { '<leader>cc', '<cmd>CodeCompanionChat Toggle<CR>', desc = 'Toggle AI [c]hat sidebar', mode = { 'n', 'v' } },
-      { '<leader>cc', '<cmd>CodeCompanionChat Toggle<CR>', desc = 'Toggle AI [c]hat sidebar', mode = { 'n', 'v' } },
       { '<leader>lp', '<cmd>CodeCompanionActions<CR>', desc = 'Open Code Companion command [p]alette', mode = { 'n', 'v' } },
       {
         '<leader>lc',
-        function() return require('codecompanion').cli { prompt = true } end,
+        function() return require('codecompanion').cli() end,
         desc = 'Open Code Companion agent CLI',
         mode = { 'n', 'v' },
       },
