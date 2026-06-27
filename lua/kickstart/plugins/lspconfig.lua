@@ -82,7 +82,18 @@ return {
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
           -- Hover to display a definition
-          map('<S-k>', vim.lsp.buf.hover, 'Hover')
+          map(
+            'K',
+            function()
+              vim.lsp.buf.hover {
+                border = 'rounded',
+                max_width = 100,
+                max_height = 24,
+                wrap = true,
+              }
+            end,
+            'Hover'
+          )
 
           -- Hover to display a definition
           map('<S-e>', vim.diagnostic.open_float, 'Open diagnostic message')

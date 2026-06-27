@@ -16,7 +16,7 @@ return {
         'markdown',
         'codecompanion',
       },
-      ignore_buftypes = {},
+      ignore_buftypes = { 'nofile', 'prompt', 'quickfix' },
     },
   },
 }
