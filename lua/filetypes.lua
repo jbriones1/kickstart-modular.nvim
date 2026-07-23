@@ -5,6 +5,6 @@ vim.filetype.add {
     ['.*%.widget%.html'] = 'htmlangular',
   },
   extension = {
-    mdx = 'markdown',
+    mdx = 'mdx',
   },
 }

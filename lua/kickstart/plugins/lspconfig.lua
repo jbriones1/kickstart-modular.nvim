@@ -201,6 +201,11 @@ return {
           },
         },
         astro = {
+          init_options = {
+            typescript = {
+              tsdk = vim.fn.getcwd() .. '/node_modules/typescript/lib',
+            },
+          },
           capabilities = {
             workspace = {
               didChangeWatchedFiles = {
@@ -215,6 +220,20 @@ return {
               didChangeWatchedFiles = {
                 dynamicRegistration = true,
               },
+            },
+          },
+        },
+        vtsls = {
+          settings = {
+            vtsls = {
+              autoUseWorkspaceTsdk = true,
+            },
+          },
+        },
+        mdx_analyzer = {
+          init_options = {
+            typescript = {
+              enabled = true,
             },
           },
         },

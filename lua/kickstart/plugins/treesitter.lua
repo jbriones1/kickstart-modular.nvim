@@ -33,6 +33,10 @@ return {
     },
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     config = function()
+      -- MDX needs its own filetype for LSP routing, but nvim-treesitter does
+      -- not ship a separate MDX parser. Reuse the Markdown parser and queries.
+      vim.treesitter.language.register('markdown', 'mdx')
+
       -- ensure basic parser are installed
       local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
       require('nvim-treesitter').install(parsers)

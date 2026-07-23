@@ -14,6 +14,7 @@ return {
     preview = {
       filetypes = {
         'markdown',
+        'mdx',
         'codecompanion',
       },
       ignore_buftypes = { 'nofile', 'prompt', 'quickfix' },

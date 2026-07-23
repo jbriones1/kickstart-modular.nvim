@@ -148,6 +148,12 @@ return {
   ---@type neotree.Config
   opts = {
     filesystem = {
+      filtered_items = {
+        always_show = {
+          '.env*',
+          '.gitignore',
+        },
+      },
       commands = {
         ng_open = function(state)
           local node = state.tree:get_node()
