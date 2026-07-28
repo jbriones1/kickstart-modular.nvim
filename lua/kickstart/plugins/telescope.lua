@@ -73,6 +73,9 @@ return {
             },
             n = { ['<C-s>'] = 'select_horizontal' },
           },
+          path_display = {
+            'filename_first',
+          },
         },
         -- pickers = {}
         extensions = {
