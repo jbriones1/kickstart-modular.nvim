@@ -70,6 +70,7 @@ return {
       },
       -- You can also specify external formatters in here.
       formatters_by_ft = {
+        astro = { 'prettierd' },
         latex = { 'latexindent', stop_after_first = true },
         lua = { 'stylua' },
         javascript = { 'prettierd' },
