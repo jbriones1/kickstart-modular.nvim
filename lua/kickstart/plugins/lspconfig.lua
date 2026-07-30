@@ -201,11 +201,7 @@ return {
           },
         },
         astro = {
-          init_options = {
-            typescript = {
-              tsdk = vim.fn.getcwd() .. '/node_modules/typescript/lib',
-            },
-          },
+          root_markers = { 'package-lock.json', '.git', 'pnpm-lock.yaml', 'yarn.lock', 'bun.lock' },
           capabilities = {
             workspace = {
               didChangeWatchedFiles = {
