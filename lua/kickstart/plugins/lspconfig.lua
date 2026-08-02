@@ -63,7 +63,7 @@ return {
           -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+            vim.keymap.set(mode, keys, func, { buf = event.buf, desc = 'LSP: ' .. desc })
           end
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
@@ -299,6 +299,7 @@ return {
       vim.list_extend(ensure_installed, {
         'angular-language-server',
         'css-lsp',
+        'css_variables',
         -- You can add other tools here that you want Mason to install
       })
 
@@ -310,7 +311,7 @@ return {
       end
 
       require('mason-lspconfig').setup {
-        automatic_enable = true,
+        automatic_enable = false,
       }
     end,
   },
