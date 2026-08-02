@@ -272,7 +272,7 @@ return {
       end
 
       require('mason-lspconfig').setup {
-        automatic_enable = false,
+        automatic_enable = true,
       }
     end,
   },
