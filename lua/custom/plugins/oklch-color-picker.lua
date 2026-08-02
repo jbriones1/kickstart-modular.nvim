@@ -4,7 +4,7 @@ return {
   version = '*',
   keys = {
     {
-      '<leader>v',
+      '<leader>cp',
       function() require('oklch-color-picker').pick_under_cursor() end,
       desc = 'Color pick under cursor',
     },
