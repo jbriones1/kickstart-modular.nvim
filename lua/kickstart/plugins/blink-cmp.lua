@@ -92,6 +92,7 @@ return {
             columns = {
               { 'label', 'label_description', gap = 1 },
               { 'kind_icon', 'kind', gap = 1 },
+              { 'lsp_client_name' },
             },
             components = {
               -- customize the drawing of kind icons
@@ -112,6 +113,12 @@ return {
                     end
                   end
                   return 'BlinkCmpKind' .. ctx.kind
+                end,
+              },
+              lsp_client_name = {
+                text = function(ctx)
+                  if ctx.item.source_name == 'LSP' and ctx.item.client_name then return ctx.item.client_name end
+                  return ctx.item.source_name
                 end,
               },
             },
